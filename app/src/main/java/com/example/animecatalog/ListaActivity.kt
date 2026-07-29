@@ -18,6 +18,6 @@ class ListaActivity : AppCompatActivity() {
 
         recyclerLista.layoutManager = LinearLayoutManager(this)
 
-
+        recyclerLista.adapter = ListaAdapter(AvaliacoesData.listaAvaliacoes)
     }
 }

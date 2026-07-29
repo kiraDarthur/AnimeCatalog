@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191825"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp"
+            android:text="Naruto Shippuden"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/imgAnime"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⭐ Nota"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFD54F"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/txtNota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="❤️ Personagem Favorita"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFD54F"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/txtPersonagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎭 Género"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFD54F"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/txtGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📺 Episódios"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFD54F"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/txtEpisodios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📝 Minha Opinião"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFD54F"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/txtOpiniao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📅 Data"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFD54F"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/txtData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</ScrollView>

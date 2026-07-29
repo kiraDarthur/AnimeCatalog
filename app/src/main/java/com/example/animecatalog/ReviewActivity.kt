@@ -6,12 +6,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class ReviewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_review)
@@ -35,12 +35,39 @@ class ReviewActivity : AppCompatActivity() {
 
         btnGuardar.setOnClickListener {
 
-            val intent = Intent(this, ListaActivity::class.java)
+            val nota = edtNota.text.toString().toDoubleOrNull()
 
+            if (nota == null || nota < 0 || nota > 10) {
+                Toast.makeText(
+                    this,
+                    "A nota deve ser entre 0 e 10.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            val avaliacao = Avaliacao(
+                anime,
+                nota,
+                edtPersonagem.text.toString(),
+                edtGenero.text.toString(),
+                edtEpisodios.text.toString(),
+                edtOpiniao.text.toString(),
+                edtData.text.toString()
+            )
+
+            AvaliacoesData.listaAvaliacoes.add(avaliacao)
+
+            Toast.makeText(
+                this,
+                "Avaliação guardada com sucesso!",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            val intent = Intent(this, ListaActivity::class.java)
             startActivity(intent)
 
+            finish()
         }
-
     }
-
 }
