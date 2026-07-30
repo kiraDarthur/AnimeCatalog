@@ -7,17 +7,22 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ListaActivity : AppCompatActivity() {
 
-    private lateinit var recyclerLista: RecyclerView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ListaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_lista)
 
-        recyclerLista = findViewById(R.id.recyclerLista)
+        recyclerView = findViewById(R.id.recyclerLista)
 
-        recyclerLista.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        recyclerLista.adapter = ListaAdapter(AvaliacoesData.listaAvaliacoes)
+        val listaOrdenada =
+            AvaliacoesData.listaAvaliacoes.sortedByDescending { it.nota }
+
+        adapter = ListaAdapter(listaOrdenada)
+
+        recyclerView.adapter = adapter
     }
 }

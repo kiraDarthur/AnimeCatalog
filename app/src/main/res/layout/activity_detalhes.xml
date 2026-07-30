@@ -12,120 +12,79 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtTitulo"
+            android:id="@+id/txtNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="16dp"
+            android:gravity="center"
             android:text="Naruto Shippuden"
-            android:textSize="28sp"
-            android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:gravity="center"/>
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imgAnime"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="⭐ Nota"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#FFD54F"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/txtNota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="❤️ Personagem Favorita"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:text="⭐ Nota: 0"
             android:textColor="#FFD54F"
-            android:layout_marginTop="16dp"/>
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/txtPersonagem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="❤️ Personagem Favorita:"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🎭 Género"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#FFD54F"
             android:layout_marginTop="16dp"/>
 
         <TextView
             android:id="@+id/txtGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="🎭 Género:"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📺 Episódios"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#FFD54F"
             android:layout_marginTop="16dp"/>
 
         <TextView
             android:id="@+id/txtEpisodios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="📺 Episódios:"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📝 Minha Opinião"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#FFD54F"
             android:layout_marginTop="16dp"/>
 
         <TextView
             android:id="@+id/txtOpiniao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="📝 Opinião:"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📅 Data"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#FFD54F"
             android:layout_marginTop="16dp"/>
 
         <TextView
             android:id="@+id/txtData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="📅 Data:"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
 

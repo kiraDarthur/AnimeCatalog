@@ -11,52 +11,64 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ReviewActivity : AppCompatActivity() {
 
+    private lateinit var txtAnimeNome: TextView
+    private lateinit var imgAnime: ImageView
+
+    private lateinit var edtNota: EditText
+    private lateinit var edtPersonagem: EditText
+    private lateinit var edtGenero: EditText
+    private lateinit var edtEpisodios: EditText
+    private lateinit var edtOpiniao: EditText
+    private lateinit var edtData: EditText
+
+    private lateinit var btnGuardar: Button
+
+    private var anime: Anime? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_review)
 
-        val anime = intent.getSerializableExtra("anime") as Anime
+        txtAnimeNome = findViewById(R.id.txtAnimeNome)
+        imgAnime = findViewById(R.id.imgAnime)
 
-        val imagem = findViewById<ImageView>(R.id.imgAnime)
-        val titulo = findViewById<TextView>(R.id.txtAnimeNome)
+        edtNota = findViewById(R.id.edtNota)
+        edtPersonagem = findViewById(R.id.edtPersonagem)
+        edtGenero = findViewById(R.id.edtGenero)
+        edtEpisodios = findViewById(R.id.edtEpisodios)
+        edtOpiniao = findViewById(R.id.edtOpiniao)
+        edtData = findViewById(R.id.edtData)
 
-        imagem.setImageResource(anime.imagem)
-        titulo.text = anime.nome
+        btnGuardar = findViewById(R.id.btnGuardar)
 
-        val edtNota = findViewById<EditText>(R.id.edtNota)
-        val edtPersonagem = findViewById<EditText>(R.id.edtPersonagem)
-        val edtGenero = findViewById<EditText>(R.id.edtGenero)
-        val edtEpisodios = findViewById<EditText>(R.id.edtEpisodios)
-        val edtOpiniao = findViewById<EditText>(R.id.edtOpiniao)
-        val edtData = findViewById<EditText>(R.id.edtData)
+        anime =
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                intent.getSerializableExtra("anime", Anime::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                intent.getSerializableExtra("anime") as? Anime
+            }
 
-        val btnGuardar = findViewById<Button>(R.id.btnGuardar)
+        if (anime != null) {
+            txtAnimeNome.text = anime!!.nome
+            imgAnime.setImageResource(anime!!.imagem)
+        }
 
         btnGuardar.setOnClickListener {
 
-            val nota = edtNota.text.toString().toDoubleOrNull()
-
-            if (nota == null || nota < 0 || nota > 10) {
-                Toast.makeText(
-                    this,
-                    "A nota deve ser entre 0 e 10.",
-                    Toast.LENGTH_SHORT
-                ).show()
+            if (edtNota.text.toString().trim().isEmpty()) {
+                Toast.makeText(this, "Digite uma nota!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val avaliacao = Avaliacao(
-                anime,
-                nota,
-                edtPersonagem.text.toString(),
-                edtGenero.text.toString(),
-                edtEpisodios.text.toString(),
-                edtOpiniao.text.toString(),
-                edtData.text.toString()
-            )
+            anime?.nota = edtNota.text.toString().toDoubleOrNull() ?: 0.0
+            anime?.personagem = edtPersonagem.text.toString()
+            anime?.genero = edtGenero.text.toString()
+            anime?.episodios = edtEpisodios.text.toString().toIntOrNull() ?: 0
+            anime?.opiniao = edtOpiniao.text.toString()
+            anime?.data = edtData.text.toString()
 
-            AvaliacoesData.listaAvaliacoes.add(avaliacao)
+            AvaliacoesData.listaAvaliacoes.add(anime!!)
 
             Toast.makeText(
                 this,
@@ -64,8 +76,12 @@ class ReviewActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            val intent = Intent(this, ListaActivity::class.java)
-            startActivity(intent)
+            startActivity(
+                Intent(
+                    this,
+                    ListaActivity::class.java
+                )
+            )
 
             finish()
         }

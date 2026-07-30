@@ -2,7 +2,7 @@ package com.example.animecatalog
 
 object AnimeData {
 
-    val listaAnimes = listOf(
+    val listaAnimes = arrayListOf(
 
         Anime(
             "Naruto Shippuden",
@@ -15,6 +15,11 @@ object AnimeData {
         ),
 
         Anime(
+            "Jujutsu Kaisen",
+            R.drawable.jujutsu
+        ),
+
+        Anime(
             "Attack on Titan",
             R.drawable.titan
         ),
@@ -22,13 +27,7 @@ object AnimeData {
         Anime(
             "Demon Slayer",
             R.drawable.demon_slayer
-        ),
-
-        Anime(
-            "Jujutsu Kaisen",
-            R.drawable.jujutsu
         )
 
     )
-
 }

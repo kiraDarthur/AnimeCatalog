@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ListaAdapter(
-    private val lista: List<Avaliacao>
+    private val lista: List<Anime>
 ) : RecyclerView.Adapter<ListaAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,21 +26,25 @@ class ListaAdapter(
             .inflate(R.layout.item_lista, parent, false)
 
         return ViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val avaliacao = lista[position]
+        val anime = lista[position]
 
-        holder.imgAnime.setImageResource(avaliacao.anime.imagem)
-        holder.txtNome.text = avaliacao.anime.nome
-        holder.txtNota.text = "⭐ ${avaliacao.nota}/10"
+        holder.imgAnime.setImageResource(anime.imagem)
+        holder.txtNome.text = anime.nome
+        holder.txtNota.text = "⭐ ${anime.nota}/10"
 
         holder.itemView.setOnClickListener {
 
-            val intent = Intent(holder.itemView.context, DetalhesActivity::class.java)
+            val intent = Intent(
+                holder.itemView.context,
+                DetalhesActivity::class.java
+            )
 
-            intent.putExtra("posicao", position)
+            intent.putExtra("anime", anime)
 
             holder.itemView.context.startActivity(intent)
 
@@ -53,4 +57,5 @@ class ListaAdapter(
         return lista.size
 
     }
+
 }
